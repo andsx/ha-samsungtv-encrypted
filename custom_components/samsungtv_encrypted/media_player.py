@@ -495,9 +495,10 @@ class SamsungTVDevice(MediaPlayerDevice):
                     del source_ids[0]
                     j = 0;
                     for i in range(len(sources_connected)):
-                        if sources_connected[i - j].lower() != 'yes':
+                        if sources_connected[i].lower() != 'yes':
                             del source_names[i - j]
                             del source_ids[i - j]
                             j = j + 1
                     sources = dict(zip(source_names, source_ids))
+        _LOGGER.debug('Sourcelist available is '.format(sources))
         return sources
